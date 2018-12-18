@@ -42,6 +42,11 @@ public class ShowConfirmDialogSample extends javax.swing.JFrame {
         });
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "YES", "NO", "CANCEL" }));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -71,9 +76,19 @@ public class ShowConfirmDialogSample extends javax.swing.JFrame {
         // TODO add your handling code here:
         //get the result, select the corresponding item in the combobox
         //show a message dialog
-        int result=JOptionPane.showConfirmDialog(this, "Confirm?", "test", JOptionPane.YES_NO_CANCEL_OPTION);
-        
+        int result=JOptionPane.showConfirmDialog(this, "Confirm?", "test", JOptionPane.YES_NO_CANCEL_OPTION,JOptionPane.WARNING_MESSAGE);
+        if(result==JOptionPane.YES_OPTION){
+            jComboBox1.setSelectedIndex(0);
+        }else if(result==JOptionPane.NO_OPTION){
+            jComboBox1.setSelectedIndex(1);
+        }else{
+            jComboBox1.setSelectedIndex(2);
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox1ActionPerformed
 
     /**
      * @param args the command line arguments
